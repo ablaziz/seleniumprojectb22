@@ -1,4 +1,4 @@
-package com.cybertek.tests;
+package com.cybertek.tests.HomePractice;
 
 import com.cybertek.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
@@ -18,8 +18,15 @@ public class AmazonPractice {
         //5. Check the title with if conditon
         WebDriver driver = WebDriverFactory.getDriver("chrome");
         driver.get("http://www.amazon.com");
-        driver.findElement(By.xpath("//input[@type='text']")).sendKeys("wooden spoon" + Keys.ENTER);
+      driver.findElement(By.xpath("//input[@type='text']")).sendKeys("wooden spoon" + Keys.ENTER);
+        String actualTitle = driver.getTitle();
+        String expectedTitle = "wooden spoon";
+        if(actualTitle.contains(expectedTitle)){
+            System.out.println("Title Verification passed");
+        }else{
+            System.out.println("Title Verification failed");
 
+        }
 
 
     }
